@@ -1,16 +1,13 @@
-<% include ../partials/header.ejs %>
+<%- include("../partials/header.ejs") %>
 
 <!-- MAIN CONTENT -->
 <div class="container">
-  <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <h3>Faculty Information</h3>
       <!-- ------------------------ -->
       <!-- FIX THE ADD BUTTON BELOW -->
       <!-- ------------------------ -->
-      <a href="" class="btn btn-primary"
-        ><i class="fa fa-plus"></i> Add a faculty</a
-      >
+      <a href="/faculties/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a faculty</a>
 
       <br />
       <div class="table-responsive">
@@ -37,6 +34,16 @@
                 <!-- ------------------------ -->
                 <!-- ADD the EDIT BUTTON HERE -->
                 <!-- ------------------------ -->
+                <a href="/faculties/<%= faculties[count]._id %>" class="btn btn-primary">
+                <i class="fa fa-plus"></i> Edit a faculty</a>
+              </td>
+              <td class="text-center">
+              <!-- ------------------------ -->
+              <!-- DELETE BUTTON -->
+              <!-- ------------------------ -->
+              
+              <a href="/faculties/delete?Facultyname=<%= faculties[count].Facultyname %>" class="btn btn-warning btn-sm">
+                <i class="fas fa-trash"></i> Delete</a>
               </td>
             </tr>
             <% } %>
@@ -46,9 +53,10 @@
       <!-- ------------------------ -->
       <!-- ADD the EDIT BUTTON HERE -->
       <!-- ------------------------ -->
-      
-      <a href="" class="btn btn-warning btn-sm">
-        <i class="fas fa-trash"></i> Delete</a>
+      <!-- Please note: This is outside of the list, therefore cannot be used to delete a single item. The code was moved above into DELETE BUTTON, and the below has been commented-->
+    
+      <!-- <a href="" class="btn btn-warning btn-sm">
+        <i class="fas fa-trash"></i> Delete</a> -->
     </main>
 
       <div class="col-md-offset-1 col-md-10 text-center">
@@ -58,4 +66,4 @@
   </div>
 </div>
 
-<% include ../partials/footer.ejs %>
+<%- include("../partials/footer.ejs") %>
